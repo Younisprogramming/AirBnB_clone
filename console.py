@@ -1,11 +1,24 @@
 #!/usr/bin/python3
+""" my doc class :) """
 import cmd
 from models.base_model import BaseModel
+from models.user import User
+from models.place import Place
+from models.city import City
+from models.amenity import Amenity
+from models.state import State
+from models.review import Review
 from models import storage
 import shlex
-mylist = {'BaseModel': BaseModel}
+mylist = {'BaseModel': BaseModel, 'User': User,
+          'Place': Place,
+          'State': State, 'City': City,
+          'Amenity': Amenity, ' Review': Review}
+
 
 class HBNBCommand(cmd.Cmd):
+    """ pycodestyle  """
+
     prompt = '(hbnb) '
 
     def do_quit(self, arg):
@@ -22,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, arg):
-
+        """ where is the doc ?! """
         if not arg:
             print("** class name missing **")
             return
@@ -34,6 +47,7 @@ class HBNBCommand(cmd.Cmd):
             print(new_inst.id)
 
     def do_show(self, arg):
+        """ (::::) """
         args = arg.split()
         if not args or args[0] == "":
             print("** class name missing **")
@@ -54,6 +68,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_destroy(self, arg):
+        """ write anything """
         args = arg.split()
         if not args or args[0] == "":
             print("** class name missing **")
@@ -79,6 +94,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, arg):
+        """ be relax """
         args = arg.split()
         if not args or args[0] == "":
             print("** class name missing **")
@@ -100,6 +116,7 @@ class HBNBCommand(cmd.Cmd):
             print(instances)
 
     def do_update(self, arg):
+        """ you can make it """
         if not arg:
             print("** class name missing **")
             return
@@ -114,9 +131,9 @@ class HBNBCommand(cmd.Cmd):
             else:
                 all_objects = storage.all()
                 for key, current_object in all_objects.items():
-                    object_name = current_object.__class__.__name__
-                    object_id = current_object.id
-                    if object_name == args[0] and object_id == args[1].strip('"'):
+                    obj_name = current_object.__class__.__name__
+                    obj_id = current_object.id
+                    if obj_name == args[0] and obj_id == args[1].strip('"'):
                         if len(args) == 2:
                             print("** attribute name missing **")
                         elif len(args) == 3:
