@@ -39,7 +39,7 @@ class BaseModel:
                 dictFormat[key] = val.isoformat()
             else:
                 dictFormat[key] = val
-                return dictFormat
+            return dictFormat
 
     def __str__(self):
         """ e56 hye56 yh5e hy5e h6e5 6e5h"""
