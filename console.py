@@ -41,8 +41,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         else:
             new_inst = globals()[arg]()
-            new_inst.save()
             print(new_inst.id)
+            new_inst.save()
 
     def do_show(self, arg):
         """ (::::) """
