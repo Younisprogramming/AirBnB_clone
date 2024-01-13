@@ -35,11 +35,16 @@ class BaseModel:
         """ e5h hyet6 hye5yh e5t yh"""
         dictFormat = {}
         for key, val in self.__dict__.items():
-            if isinstance(val, datetime):
-                dictFormat[key] = val.isoformat()
+            if key == "created_at" or key == "updated_at":
+                new_dict[key] = values.strftime("%Y-%m-%dT%H:%M:%S.%f")
             else:
-                dictFormat[key] = val
-        return dictFormat
+                if not values:
+                    pass
+                else:
+                    new_dict[key] = values
+        new_dict['__class__'] = self.__class__.__name__
+
+        return new_dict
 
     def __str__(self):
         """ e56 hye56 yh5e hy5e h6e5 6e5h"""
