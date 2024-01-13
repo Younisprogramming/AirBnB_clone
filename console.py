@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" my doc class :) """
+""" my doc class :) kso gtpsrk htgswtrh 
+hrt rth det"""
 import cmd
 from models.base_model import BaseModel
 from models.user import User
@@ -13,27 +14,32 @@ import shlex
 
 
 class HBNBCommand(cmd.Cmd):
-    """ pycodestyle  """
+    """ pycodestyle  spork hypoyks hpokrys hr
+    okmyi resoimhyo6"""
 
     prompt = '(hbnb) '
     myclasses = ['BaseModel', 'User', 'Amenity',
                  'Place', 'City', 'State', 'Review']
 
     def do_quit(self, arg):
-        """Quit command to exit the program"""
+        """Quit command to exit the program sektygra5t hy
+         srht srt hy6rsety"""
         return True
 
     def do_EOF(self, arg):
-        """EOF command to exit the program"""
+        """EOF command to exit the programa 5yoie4wj5oij y54owijy 5w4
+        w54ey gsr6y """
         print()
         return True
 
     def emptyline(self):
-        """Do nothing on an empty line"""
+        """Do nothing on an empty line se y5h44ewa y54
+         ytwr yh6wt4s y"""
         pass
 
     def do_create(self, arg):
-        """ where is the doc ?! """
+        """ where is the doc ?! ws ty er6 uhyet5d6y hj
+         6ywr ys6rw y6e56 """
         if not arg:
             print("** class name missing **")
         elif arg not in HBNBCommand.myclasses:
@@ -47,7 +53,8 @@ class HBNBCommand(cmd.Cmd):
             my_model.save()
 
     def do_show(self, arg):
-        """ (::::) """
+        """ (::::) tr4 hyoirwsth iksr hywry h
+         wrhys w6 hyedt6 ye6 yr"""
         if not arg:
             print("** class name missing **")
             return
@@ -69,7 +76,8 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_destroy(self, arg):
-        """ write anything """
+        """ write anything rstlkhywy6 twr6 yw ry6w 6ry4
+         6ywr w6yr 6yrw y6wr"""
         args = arg.split()
         if not args or args[0] == "":
             print("** class name missing **")
@@ -95,7 +103,8 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_all(self, arg):
-        """ be relax """
+        """ be relax swy twry 5w64y 4q6wu56uau
+         wu5yallky5lloyws;pyr6dl """
 
         if not arg:
             print("** class name missing **")
@@ -117,7 +126,8 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_update(self, arg):
-        """ you can make it """
+        """ you can make it kjlaet uji s5teuk srtio
+        lkstrhjksrt kj   kjsthrkj trs5"""
         args = arg.split()
 
         if len(args) == 0:
