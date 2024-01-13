@@ -42,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
         elif arg not in mylist:
             print("** class doesn't exist **")
         else:
-            new_inst = BaseModel()
+            new_inst = mylist[arg]()
             new_inst.save()
             print(new_inst.id)
 
