@@ -40,7 +40,7 @@ class HBNBCommand(cmd.Cmd):
         elif arg not in HBNBCommand.myclasses:
             print("** class doesn't exist **")
         else:
-            new_inst = getattr(models, arg)()
+            new_inst = globals()[arg]()
             new_inst.save()
             print(new_inst.id)
 
