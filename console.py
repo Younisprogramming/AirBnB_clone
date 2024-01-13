@@ -11,9 +11,9 @@ from models.review import Review
 from models import storage
 import shlex
 mylist = {'BaseModel': BaseModel, 'User': User,
-          'Place': Place,
-          'State': State, 'City': City,
-          'Amenity': Amenity, ' Review': Review}
+        'Place': Place,
+        'State': State, 'City': City,
+        'Amenity': Amenity, ' Review': Review}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -96,24 +96,26 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         """ be relax """
         args = arg.split()
-        if not args or args[0] == "":
-            print("** class name missing **")
-            return
+    if not args or args[0] == "":
+        print("** class name missing **")
+        return
 
-        class_name = args[0]
-        if class_name not in mylist:
-            print("** class doesn't exist **")
-            return
+    class_name = args[0]
+    if class_name not in mylist:
+        print("** class doesn't exist **")
+        return
 
-        if len(args) > 1:
-            instances = []
-            for key, obj in storage.all().items():
-                if key.split('.')[0] == class_name:
-                    instances.append(str(obj))
-            print(instances)
-        else:
-            instances = [str(obj) for obj in storage.all().values()]
-            print(instances)
+    if len(args) > 1:
+        instances = []
+        for key, obj in storage.all().items():
+            if key.split('.')[0] == class_name:
+                instances.append(str(obj))
+        for instance in instances:
+            print(instance)
+    else:
+        instances = [str(obj) for obj in storage.all().values()]
+        for instance in instances:
+            print(instance)
 
     def do_update(self, arg):
         """ you can make it """
