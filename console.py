@@ -36,13 +36,15 @@ class HBNBCommand(cmd.Cmd):
         """ where is the doc ?! """
         if not arg:
             print("** class name missing **")
-            return
         elif arg not in HBNBCommand.myclasses:
             print("** class doesn't exist **")
         else:
-            new_inst = globals()[arg]()
-            print(new_inst.id)
-            new_inst.save()
+            dct = {'BaseModel': BaseModel, 'User': User, 'Place': Place,
+                   'City': City, 'Amenity': Amenity, 'State': State,
+                   'Review': Review}
+            my_model = dct[arg]()
+            print(my_model.id)
+            my_model.save()
 
     def do_show(self, arg):
         """ (::::) """
