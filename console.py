@@ -100,26 +100,24 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """ be relax """
-        args = arg.split()
-        if not args or args[0] == "":
+
+        if not arg:
             print("** class name missing **")
             return
+        args = arg.split()
+
         class_name = args[0]
         if class_name not in mylist:
             print("** class doesn't exist **")
             return
-
-        if len(args) > 1:
-            instances = []
-            for key, obj in storage.all().items():
-                if key.split('.')[0] == class_name:
-                    instances.append(str(obj))
-                    for instance in instances:
-                        print(instance)
         else:
-            instances = [str(obj) for obj in storage.all().values()]
-            for instance in instances:
-                print(instance)
+            objl = []
+            for obj in storage.all().values():
+                if len(args) > 0 and args[0] == obj.__class__.__name__:
+                    objl.append(obj.__str__())
+                elif len(args) == 0:
+                    objl.append(obj.__str__())
+            print(objl)
 
     def do_update(self, arg):
         """ you can make it """
