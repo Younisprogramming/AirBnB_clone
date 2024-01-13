@@ -41,4 +41,4 @@ class BaseModel:
     def __str__(self):
         """Return a string representation of the instance"""
         cl = self.__class__.__name__
-        return f"[{cl}] ({self.id}) {self.__dict__}"
+        return f"[{cl}] ({self.id}) <{self.__dict__}>"
