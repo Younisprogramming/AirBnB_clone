@@ -17,7 +17,7 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = '(hbnb) '
     myclasses = ['BaseModel', 'User', 'Amenity',
-                 'Place', 'City', 'State', 'Review']
+            'Place', 'City', 'State', 'Review']
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
@@ -40,8 +40,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         else:
             dct = {'BaseModel': BaseModel, 'User': User, 'Place': Place,
-                   'City': City, 'Amenity': Amenity, 'State': State,
-                   'Review': Review}
+                    'City': City, 'Amenity': Amenity, 'State': State,
+                    'Review': Review}
             my_model = dct[arg]()
             print(my_model.id)
             my_model.save()
@@ -116,32 +116,47 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         """ you can make it """
-        if not arg:
+        args = arg.split()
+
+        if len(args) == 0:
             print("** class name missing **")
             return
-        combined_args = ""
-        for argv in arg.split(','):
-            combined_args = combined_args + argv
-            args = shlex.split(combined_args)
-            if args[0] not in HBNBCommand.myclasses:
-                print("** class doesn't exist **")
-            elif len(args) == 1:
-                print("** instance id missing **")
-            else:
-                all_objects = storage.all()
-                for key, current_object in all_objects.items():
-                    obj_name = current_object.__class__.__name__
-                    obj_id = current_object.id
-                    if obj_name == args[0] and obj_id == args[1].strip('"'):
-                        if len(args) == 2:
-                            print("** attribute name missing **")
-                        elif len(args) == 3:
-                            print("** value missing **")
-                        else:
-                            setattr(current_object, args[2], args[3])
-                            storage.save()
-                            return
-                        print("** no instance found **")
+
+        elif args[0] not in HBNBCommand.myclasses:
+            print("** class doesn't exist **")
+
+        elif len(args) < 2:
+            print("** instance id missing **")
+            return
+
+        else:
+            class_name = args[0]
+            instance_id = args[1]
+
+            objects = storage.all()
+            key = f"{class_name}.{instance_id}"
+
+            if key not in objects:
+                print("** no instance found **")
+                return
+
+            if len(args) < 3:
+                print("** attribute name missing **")
+                return
+
+            elif len(args) < 4:
+                print("** value missing **")
+                return
+
+            value = args[3].replace('"', '')
+
+            for key, objc in objects.items():
+                ob_id = objc.id
+                if ob_id == args[1]:
+                    setattr(objc, args[2], value)
+                    storage.save()
+                    storage.reload()
+
 
 
 if __name__ == '__main__':
