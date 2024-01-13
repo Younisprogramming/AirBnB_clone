@@ -10,10 +10,15 @@ from models.state import State
 from models.review import Review
 from models import storage
 import shlex
-mylist = {'BaseModel': BaseModel, 'User': User,
+mylist = {
+        'BaseModel': BaseModel,
+        'User': User,
         'Place': Place,
-        'State': State, 'City': City,
-        'Amenity': Amenity, ' Review': Review}
+        'State': State,
+        'City': City,
+        'Amenity': Amenity,
+        'Review': Review
+        }
 
 
 class HBNBCommand(cmd.Cmd):
