@@ -10,21 +10,14 @@ from models.state import State
 from models.review import Review
 from models import storage
 import shlex
-mylist = {
-        'BaseModel': BaseModel,
-        'User': User,
-        'Place': Place,
-        'State': State,
-        'City': City,
-        'Amenity': Amenity,
-        'Review': Review
-        }
 
 
 class HBNBCommand(cmd.Cmd):
     """ pycodestyle  """
 
     prompt = '(hbnb) '
+    myclasses = ['BaseModel', 'User', 'Amenity',
+                 'Place', 'City', 'State', 'Review']
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
@@ -44,7 +37,7 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return
-        elif arg not in mylist:
+        elif arg not in myclasses:
             print("** class doesn't exist **")
         else:
             new_inst = mylist[arg]()
@@ -58,7 +51,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         class_name = args[0]
-        if class_name not in mylist:
+        if class_name not in myclasses:
             print("** class doesn't exist **")
             return
         if len(args) < 2 or args[1] == "":
@@ -80,7 +73,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         class_name = args[0]
-        if class_name not in mylist:
+        if class_name not in myclasses:
             print("** class doesn't exist **")
             return
 
@@ -107,7 +100,7 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split()
 
         class_name = args[0]
-        if class_name not in mylist:
+        if class_name not in myclasses:
             print("** class doesn't exist **")
             return
         else:
@@ -128,7 +121,7 @@ class HBNBCommand(cmd.Cmd):
         for argv in arg.split(','):
             combined_args = combined_args + argv
             args = shlex.split(combined_args)
-            if args[0] not in mylist:
+            if args[0] not in myclasses:
                 print("** class doesn't exist **")
             elif len(args) == 1:
                 print("** instance id missing **")
