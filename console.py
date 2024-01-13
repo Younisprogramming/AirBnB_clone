@@ -17,7 +17,7 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = '(hbnb) '
     myclasses = ['BaseModel', 'User', 'Amenity',
-            'Place', 'City', 'State', 'Review']
+                 'Place', 'City', 'State', 'Review']
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
@@ -40,8 +40,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         else:
             dct = {'BaseModel': BaseModel, 'User': User, 'Place': Place,
-                    'City': City, 'Amenity': Amenity, 'State': State,
-                    'Review': Review}
+                   'City': City, 'Amenity': Amenity, 'State': State,
+                   'Review': Review}
             my_model = dct[arg]()
             print(my_model.id)
             my_model.save()
@@ -156,7 +156,6 @@ class HBNBCommand(cmd.Cmd):
                     setattr(objc, args[2], value)
                     storage.save()
                     storage.reload()
-
 
 
 if __name__ == '__main__':
