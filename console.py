@@ -37,7 +37,7 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return
-        elif arg not in self.myclasses:
+        elif arg not in HBNBCommand.myclasses:
             print("** class doesn't exist **")
         else:
             new_inst = globals()[arg]()
@@ -51,7 +51,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         class_name = args[0]
-        if class_name not in self.myclasses:
+        if class_name not in HBNBCommand.myclasses:
             print("** class doesn't exist **")
             return
         if len(args) < 2 or args[1] == "":
@@ -73,7 +73,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         class_name = args[0]
-        if class_name not in self.myclasses:
+        if class_name not in HBNBCommand.myclasses:
             print("** class doesn't exist **")
             return
 
@@ -100,7 +100,7 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split()
 
         class_name = args[0]
-        if class_name not in self.myclasses:
+        if class_name not in HBNBCommand.myclasses:
             print("** class doesn't exist **")
             return
         else:
@@ -121,7 +121,7 @@ class HBNBCommand(cmd.Cmd):
         for argv in arg.split(','):
             combined_args = combined_args + argv
             args = shlex.split(combined_args)
-            if args[0] not in self.myclasses:
+            if args[0] not in HBNBCommand.myclasses:
                 print("** class doesn't exist **")
             elif len(args) == 1:
                 print("** instance id missing **")
