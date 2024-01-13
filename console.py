@@ -100,7 +100,7 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split()
 
         class_name = args[0]
-        if class_name not in myclasses:
+        if class_name not in self.myclasses:
             print("** class doesn't exist **")
             return
         else:
