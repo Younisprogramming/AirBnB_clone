@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" my doc class :) kso gtpsrk htgswtrh 
+""" my doc class :) kso gtpsrk htgswtrh
 hrt rth det"""
 import cmd
 from models.base_model import BaseModel
