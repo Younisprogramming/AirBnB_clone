@@ -30,14 +30,13 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             storage.new(self)
-
-    def __str__(self) -> str:
-        """Return a string representation of the BaseModel instance.
-
-        Returns:
-            str: A string representation of the BaseModel instance.
+    def __str__(self):
+        """returns class name, id and attribute dictionary
         """
-        return f"[{self.__class__.__name__}] ({self.id}) <{self.__dict__}>"
+        class_name = "[" + self.__class__.__name__ + "]"
+        dct = {k: v for (k, v) in self.__dict__.items() if (not v) is False}
+        return class_name + " (" + self.id + ") " + str(dct)
+
 
     def save(self):
         """Save the BaseModel instance.
