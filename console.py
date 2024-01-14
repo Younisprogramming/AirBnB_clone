@@ -11,6 +11,15 @@ from models.state import State
 from models.review import Review
 from models import storage
 import shlex
+myclasses = [
+        'BaseModel',
+        'User',
+        'Amenity',
+        'Place',
+        'City',
+        'State',
+        'Review'
+        ]
 
 
 class HBNBCommand(cmd.Cmd):
@@ -18,8 +27,6 @@ class HBNBCommand(cmd.Cmd):
     okmyi resoimhyo6"""
 
     prompt = '(hbnb) '
-    myclasses = ['BaseModel', 'User', 'Amenity',
-                 'Place', 'City', 'State', 'Review']
 
     def do_quit(self, arg):
         """Quit command to exit the program sektygra5t hy
