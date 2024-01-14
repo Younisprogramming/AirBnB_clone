@@ -52,15 +52,9 @@ class HBNBCommand(cmd.Cmd):
         elif arg not in myclasses:
             print("** class doesn't exist **")
         else:
-            dct = {
-                    'BaseModel': BaseModel,
-                    'User': User,
-                    'Place': Place,
-                    'City': City,
-                    'Amenity': Amenity,
-                    'State': State,
-                    'Review': Review
-                    }
+            dct = {'BaseModel': BaseModel, 'User': User, 'Place': Place,
+                   'City': City, 'Amenity': Amenity, 'State': State,
+                   'Review': Review}
             my_model = dct[arg]()
             print(my_model.id)
             my_model.save()
@@ -117,8 +111,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """ be relax swy twry 5w64y 4q6wu56uau
-         wu5yallky5lloyws;pyr6dl
-         """
+         wu5yallky5lloyws;pyr6dl """
+
         if not arg:
             print("** class name missing **")
             return
