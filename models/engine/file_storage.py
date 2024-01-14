@@ -30,7 +30,7 @@ class FileStorage:
             json.dump(dictObj, jsonFile)
 
     def reload(self):
-        """ Deserializes __objects from 
+        """ Deserializes __objects from
         t srth srth ysrt he JSON file
         """
         from models.base_model import BaseModel
@@ -40,9 +40,15 @@ class FileStorage:
         from models.amenity import Amenity
         from models.state import State
         from models.review import Review
-        dct = {'BaseModel': BaseModel, 'User': User, 'Place': Place,
-                'City': City, 'Amenity': Amenity, 'State': State,
-                'Review': Review}
+        dct = {
+                'BaseModel': BaseModel,
+                'User': User,
+                'Amenity': Amenity,
+                'Place': Place,
+                'City': City,
+                'State': State,
+                'Review': Review
+                }
 
         if os.path.exists(FileStorage.__file_path) is True:
             with open(FileStorage.__file_path, 'r') as f:
