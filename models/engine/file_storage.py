@@ -1,26 +1,26 @@
 #!/usr/bin/python3
+""" re hyw56 ehe5yt5y uh5e7 u6r7 """
 import json
 import os
-""" class doc .."""
 
 
 class FileStorage:
-    """ storage """
+    """ storage rsth yrst hyrts """
 
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
-        """all func."""
+        """all func.wr hywsrt hy yh"""
         return FileStorage.__objects
 
     def new(self, obj):
-        """new func."""
+        """new func. srth rs hyrs hy"""
         key = f"{obj.__class__.__name__}.{obj.id}"
         FileStorage.__objects[key] = obj
 
     def save(self):
-        """save func."""
+        """save func.srth sr wsy hwsrt yh"""
         dictObj = {}
 
         for key, val in FileStorage.__objects.items():
@@ -30,7 +30,7 @@ class FileStorage:
             json.dump(dictObj, jsonFile)
 
     def reload(self):
-        """ Deserializes __objects from the JSON file """
+        """ Deserializes __objects from t srth srth ysrt he JSON file """
         from models.base_model import BaseModel
         from models.user import User
         from models.place import Place
