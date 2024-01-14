@@ -21,15 +21,10 @@ class FileStorage:
 
     def save(self):
         """save func.srth sr wsy hwsrt yh"""
-        all_objs = FileStorage.__objects
-
-        obj_dict = {}
-
-        for obj in all_objs.keys():
-            obj_dict[obj] = all_objs[obj].to_dict()
-
-        with open(FileStorage.__file_path, "w", encoding="utf-8") as file:
-            json.dump(obj_dict, file)
+        odict = FileStorage.__objects
+        objdict = {obj: odict[obj].to_dict() for obj in odict.keys()}
+        with open(FileStorage.__file_path, "w") as f:
+            json.dump(objdict, f)
 
     def reload(self):
         """ Deserializes __objects from
