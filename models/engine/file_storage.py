@@ -16,7 +16,8 @@ class FileStorage:
 
     def new(self, obj):
         """new func."""
-        FileStorage.__objects[f"{obj.__class__.__name__}.{obj.id}"] = obj
+        key = f"{obj.__class__.__name__}.{obj.id}"
+        FileStorage.__objects[key] = obj
 
     def save(self):
         """save func."""
