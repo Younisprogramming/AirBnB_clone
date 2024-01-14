@@ -11,11 +11,8 @@ class BaseModel:
     """This is the base class for all models."""
 
     def __init__(self, *args, **kwargs):
-        """Initialize a new instance of the BaseModel class.
-
-        Args:
-            *args: Variable length argument list.
-            **kwargs: Arbitrary keyword arguments.
+        """Initialize a new instance of the Bas
+        eModel class.
         """
         if kwargs:
             for key, value in kwargs.items():
@@ -32,7 +29,9 @@ class BaseModel:
             storage.new(self)
 
     def __str__(self):
-        """Return the print/str representation of the BaseModel instance."""
+        """Return the print/str representation of the
+        BaseModel instance.
+        """
         clname = self.__class__.__name__
         return "[{}] ({}) {}".format(clname, self.id, self.__dict__)
 
@@ -44,10 +43,8 @@ class BaseModel:
         storage.save()
 
     def to_dict(self):
-        """Convert the BaseModel instance to a dictionary.
-
-        Returns:
-            dict: A dictionary representation of the BaseModel instance.
+        """Convert the BaseModel instance to a d
+        dict: A dictionary representation of the BaseModel instance.
         """
         obj_dict = self.__dict__.copy()
         obj_dict['__class__'] = self.__class__.__name__
