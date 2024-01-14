@@ -41,8 +41,9 @@ class FileStorage:
         dct = {'BaseModel': BaseModel, 'User': User, 'Place': Place,
                'State': State, 'City': City,
                'Amenity': Amenity, ' Review': Review}
-
-        if os.path.exists(FileStorage.__file_path) is True:
-            with open(FileStorage.__file_path, 'r') as filejs:
-                for key, value in json.load(filejs).items():
-                    self.new(dct[value['__class__']](**value))
+        if os.path.exists(FileStorage.__file_path):
+            with open(FileStorage.__file_path, 'r') as file:
+                data = json.load(file)
+                for value in data.values():
+                    class_name = value.get('__class__')
+                    self.new(Models[class_name](**value))
