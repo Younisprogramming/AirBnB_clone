@@ -19,6 +19,25 @@ class HBNBCommand(cmd.Cmd):
     myclasses = ['BaseModel', 'User', 'Amenity',
                  'Place', 'City', 'State', 'Review']
 
+    def precmd(self, arg):
+        """Handles commands in the format <class_name>.<method_name>()."""
+        if '.' in arg and '(' in arg and ')' in arg:
+            cls = arg.split('.')
+            cnd = cls[1].split('(')
+            args = cnd[1].split(')')
+            if cls[0] in HBNBCommand.myclasses:
+                arg = cnd[0] + ' ' + cls[0] + ' ' + args[0]
+        return arg
+    
+    def do_count(self, cls_name):
+        """counts number of instances of a class"""
+        count = 0
+        for key, val in storage.all().items():
+            clss = key.split('.')
+            if clss[0] == cls_name:
+                count = count + 1
+        print(count)
+
     def do_quit(self, arg):
         """Quit command to exit the program"""
         return True
