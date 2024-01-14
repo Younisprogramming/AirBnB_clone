@@ -49,7 +49,7 @@ class HBNBCommand(cmd.Cmd):
          6ywr ys6rw y6e56 """
         if not arg:
             print("** class name missing **")
-        elif arg not in HBNBCommand.myclasses:
+        elif arg not in myclasses:
             print("** class doesn't exist **")
         else:
             dct = {'BaseModel': BaseModel, 'User': User, 'Place': Place,
@@ -68,7 +68,7 @@ class HBNBCommand(cmd.Cmd):
 
         args = arg.split(' ')
 
-        if args[0] not in HBNBCommand.myclasses:
+        if args[0] not in myclasses:
             print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
@@ -91,7 +91,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         class_name = args[0]
-        if class_name not in HBNBCommand.myclasses:
+        if class_name not in myclasses:
             print("** class doesn't exist **")
             return
 
@@ -119,7 +119,7 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split()
 
         class_name = args[0]
-        if class_name not in HBNBCommand.myclasses:
+        if class_name not in myclasses:
             print("** class doesn't exist **")
             return
         else:
@@ -141,7 +141,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
-        elif args[0] not in HBNBCommand.myclasses:
+        elif args[0] not in myclasses:
             print("** class doesn't exist **")
 
         elif len(args) < 2:
