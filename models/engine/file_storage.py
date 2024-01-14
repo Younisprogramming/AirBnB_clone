@@ -46,4 +46,4 @@ class FileStorage:
                 data = json.load(file)
                 for value in data.values():
                     class_name = value.get('__class__')
-                    self.new(Models[class_name](**value))
+                    self.new(dct[class_name](**value))
