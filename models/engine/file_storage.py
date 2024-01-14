@@ -21,13 +21,15 @@ class FileStorage:
 
     def save(self):
         """save func.srth sr wsy hwsrt yh"""
-        dictObj = {}
+        all_objs = FileStorage.__objects
 
-        for key, val in FileStorage.__objects.items():
-            dictObj[key] = val.to_dict()
-            dictObj[key]['__class__'] = val.__class__.__name__
-        with open(FileStorage.__file_path, "w") as jsonFile:
-            json.dump(dictObj, jsonFile)
+        obj_dict = {}
+
+        for obj in all_objs.keys():
+            obj_dict[obj] = all_objs[obj].to_dict()
+
+        with open(FileStorage.__file_path, "w", encoding="utf-8") as file:
+            json.dump(obj_dict, file)
 
     def reload(self):
         """ Deserializes __objects from
@@ -49,7 +51,6 @@ class FileStorage:
                 'State': State,
                 'Review': Review
                 }
-
         if os.path.exists(FileStorage.__file_path) is True:
             with open(FileStorage.__file_path, 'r') as f:
                 for key, value in json.load(f).items():
