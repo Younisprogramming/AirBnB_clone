@@ -28,7 +28,7 @@ class HBNBCommand(cmd.Cmd):
             if cls[0] in HBNBCommand.myclasses:
                 arg = cnd[0] + ' ' + cls[0] + ' ' + args[0]
         return arg
-    
+
     def do_count(self, cls_name):
         """counts number of instances of a class"""
         count = 0
