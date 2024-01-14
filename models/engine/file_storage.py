@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ re hyw56 ehe5yt5y uh5e7 u6r7 """
 import json
-from models.base_model import BaseModel
 import os
 
 
