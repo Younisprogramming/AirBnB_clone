@@ -119,24 +119,24 @@ class HBNBCommand(cmd.Cmd):
         """ be relax swy twry 5w64y 4q6wu56uau
          wu5yallky5lloyws;pyr6dl
          """
-        args = arg.split()
-        if not args:
+        if not arg:
             print("** class name missing **")
             return
+        args = arg.split()
+
         class_name = args[0]
-        if class_name not in HBNBCommand.myclasses:
+        if class_name not in myclasses:
             print("** class doesn't exist **")
             return
         else:
-            obj_list = []
-            for obj in storage.all().values():
-                if args and args[0] == obj.__class__.__name__:
-                    obj_list.append(obj)
-                elif not args:
-                    obj_list.append(obj)
-            if hasattr(obj_list[0], "all"):
-                obj_list = obj_list[0].all()
+            obj_list = [
+                    obj.__str__() for obj in storage.all().values()
+                    if obj.__class__.__name__ == class_name
+                    ]
+            if obj_list:
                 print(obj_list)
+        else:
+            print("** no instance found **")
 
     def do_update(self, arg):
         """ you can make it kjlaet uji s5teuk srtio
