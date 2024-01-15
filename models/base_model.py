@@ -12,8 +12,7 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """Initialize a new instance of the Bas
-        eModel class.
-        """
+        eModel class."""
         if kwargs:
             for key, value in kwargs.items():
                 if key != "__class__":
@@ -30,22 +29,19 @@ class BaseModel:
 
     def __str__(self):
         """Return the print/str representation of the
-        BaseModel instance.
-        """
+        BaseModel instance."""
         clname = self.__class__.__name__
         return "[{}] ({}) {}".format(clname, self.id, self.__dict__)
 
     def save(self):
         """Save the BaseModel instance.
-        mare talk talk
-        """
+        mare talk talk"""
         self.updated_at = datetime.now()
         storage.save()
 
     def to_dict(self):
         """Convert the BaseModel instance to a d
-        dict: A dictionary representation of the BaseModel instance.
-        """
+        dict: A dictionary representation of the BaseModel instance."""
         obj_dict = self.__dict__.copy()
         obj_dict['__class__'] = self.__class__.__name__
         obj_dict['created_at'] = self.created_at.isoformat()
